@@ -7,12 +7,17 @@ public class AdventureGame : MonoBehaviour
 {
 
     [SerializeField] Text textComponent; //[serializeField] is used in front of variables so we can make this available in the Unity Inspector. If we check, textComponent will be available. 
-                     //Text is a type of variable. textComponent is the variable name (I Think)
+                                         //Text is a type of variable. textComponent is the variable name (I Think)
 
+    [SerializeField] State startingState;
+
+    State state;
     // Start is called before the first frame update
     void Start()
-    { //the dot after textComponent means it will access the text within it 
-        textComponent.text = ("I am added programmatically");
+    {
+        state = startingState;
+        //the dot after textComponent means it will access the text within it 
+        textComponent.text = state.GetStateStory();
     }
 
     // Update is called once per frame
